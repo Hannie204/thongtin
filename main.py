@@ -1,3 +1,4 @@
+import os
 from flask import Flask, request, render_template
 import requests
 import json
@@ -37,5 +38,5 @@ def send_data():
         return render_template("troll.html")
 
 if __name__ == "__main__":
-    app.run()
-
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
